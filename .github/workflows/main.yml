@@ -21,11 +21,11 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@your-ec2-public-ip << 'EOF'
-          cd /var/www/html
+          ssh -o StrictHostKeyChecking=no ubuntu@34.229.216.184<< 'EOF'
+          cd /var/www/wordpress
           git fetch --all
           git reset --hard origin/main
-          sudo chown -R www-data:www-data /var/www/html
-          sudo chmod -R 755 /var/www/html
+          sudo chown -R www-data:www-data /var/www/wordpress
+          sudo chmod -R 755 /var/www/wordpress
           sudo systemctl reload nginx
           EOF
